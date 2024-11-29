@@ -5,3 +5,9 @@ you, thing, etc.) and why?
 
   Applied: how can we use these patterns to guide and predict future song creation and gage levels of popularity, and therefore be able to predict and leverage potential profits for artists, producers, concert venues,
 etc.
+
+
+Palomba Script: I've selected one of the song data points for further explortion by loading it in and parsing the text. I want to compare across similar genres and time periods,
+with differing artist genders and see the stylistic change and similarities, and how these relate to song popularity
+  * my script template is placed below my active script in the PalombaScript ipynb folder, and is derived from a script given to me by Professor Anthony Palomba form the Darden 
+Business school, whom I am consulting for adivce and guidance on my project
