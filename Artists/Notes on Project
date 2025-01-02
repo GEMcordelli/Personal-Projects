@@ -16,3 +16,15 @@ Business school, whom I am consulting for adivce and guidance on my project
 
 12/12 - Palomba Script Update: For this specific song, Only Girl in the World, I want more stringent guidliens for how many times a line has to be repreated to be considered
 part of a course. I hypothesize that this points to pop songs having more repetitive sequences outside of a chorus
+
+
+
+*** NEWEST OBJECTIVE***
+12/27 - Another Update: based on my most recent convo with Anthony, here is our current objective and future plans...
+
+" my plan is to copy the same process I used for Only Girl In The World for every song that corresponded to the EDA I performed previously. Line 81 in the jupyter notebook I 
+attached outputs a dataframe that includes some metadata about songs that reached #1 on the Billboard Top 100. The "genderdummy", "songsubject" and "gender" columns were added 
+by me, and the remaining columns were already a part of the dataset. My thought was to use insights gained from the Lyrics_Analysis files (more specified song subject, other 
+themes that may pop up such as repetition, emotion, etc) and add these as new columns in the EDA dataframe. Then, I could use some feature engineering to predict what features 
+correlate most strongly to chart success. Further down the line, I thought I could juxtapose this with the same process on the songs that pool around the bottom of the
+Billboard Top 100. "
