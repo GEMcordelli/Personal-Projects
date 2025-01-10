@@ -28,3 +28,8 @@ by me, and the remaining columns were already a part of the dataset. My thought 
 themes that may pop up such as repetition, emotion, etc) and add these as new columns in the EDA dataframe. Then, I could use some feature engineering to predict what features 
 correlate most strongly to chart success. Further down the line, I thought I could juxtapose this with the same process on the songs that pool around the bottom of the
 Billboard Top 100. "
+
+
+**UPDATE: finished loading csvs for the first 20 songs in the top 100! My next step is to do a bit of EDA on the csvs
+    - csvs-as-individuals: I want to do indivudal analysis on each songs lyrics so they can be reincorporated into the original dataframe, so I can incorporate the other metadata when creating algorithms
+    - csvs-as-conglomerate: I also want to make one big franken-frame of every single csv, regardless of the speicifc song, so we can make some higher level observations abotu general patterns across lyrics (for example, we can use Fourier transformations to track word frequency; we could separate this by "pivot-wider"-ing the Section column of the csvs. Every csv has the same dataframe structure, so this shouldnt be too hard!)
