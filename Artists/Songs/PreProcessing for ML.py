@@ -28,5 +28,8 @@ combined.to_csv("AllSongs.csv", index=False)
 
 # Clean Out Lyric Annotations
 
-cleaning = combined[~combined["Content"].str.contains("[")]
-combined.columns
+cleaning = combined
+
+cleaning["chunk_str"] = cleaning.Content.str.replace(r"\['", ' ', regex=True).str.strip()
+cleaning["chunk_str"] = cleaning.Content.str.replace(r'\]', ' ', regex=True).str.strip()
+cleaning.chunk_str
