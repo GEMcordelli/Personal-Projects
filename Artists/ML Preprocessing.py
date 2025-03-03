@@ -20,5 +20,7 @@ for file in filenames:
     
 combined = pd.concate(combined)
 
-pd.read_csv("Amanda.csv")
-    
+
+file - pd.read_csv("Amanda.csv")
+
+getwd()
