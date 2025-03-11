@@ -5,28 +5,41 @@ import requests
 from io import StringIO
 import matplotlib
 
+os.chdir("Artists/Songs")
+
 filenames = ["Amanda.csv", "BabyGotBack.csv", "Ben.csv", "Bump,Bump,Bump.csv",  "DukeOfEarl.csv", "ComeOnEileen.csv","GetBusy.csv", "HelpMe,Rhonda.csv","LetMeLoveYou.csv", "MyLove.csv","OnlyGirlInTheWorld.csv", "PennyLane.csv", "ShakeItOff.csv", "SlowJamz.csv", "TheStreak.csv"]
 
-#git = "https://github.com/GEMcordelli/Personal-Projects/tree/main/Artists/Songs"
+# Combine all songs into one csv file
 
 combined = []
 
-for file in filenames:
+for i, file in enumerate(filenames):
     read = pd.read_csv(file)
+    
+    read["song"] = f"Song {i}"
+    
     combined.append(read)
     
-    
+# Convert to dataframe, set index as song #, and save as csv
 combined
     
 combined = pd.concat(combined)
 
 combined = pd.DataFrame(combined)
 
-# save as csv in Songs Folder
+combined.set_index(combined["song"], inplace = True)
+
+combined.drop("song", axis=1, inplace=True)
+# Save as csv in Songs Folder
 
 combined.to_csv("AllSongs.csv", index=False)
 
+
 # Clean Out Lyric Annotations
+
+# append AllSongs so that the index is separating each song
+
+
 
 cleaning = combined
 
@@ -41,11 +54,11 @@ cleaning.to_csv("AllSongs_Cleaned.csv", sep = "\t", index = False)
 # add a line_id as index name so we can have a layered index of line_num and token_num later on
 K = cleaning.index.name("line_id")
 K = cleaning.chunk_str.str.split(expand=True).stack().to_frame('token_str')
-K.index.names = ['line_num','token_num']
+K.index.names = ['Song_num','token_num']
 # looks like tokenizing might have actually kept in some of the key lyrical annotations! This can serve useful for other analysis
 K.iloc[800:820]
 
-K.to_csv("TOKENS_AllSongs.csv", index = False)
+K.to_csv("TOKENS_AllSongs.csv", index = True)
 
 
 # Vocabulary Table
