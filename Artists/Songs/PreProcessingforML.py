@@ -52,9 +52,13 @@ cleaning.to_csv("AllSongs_Cleaned.csv", sep = "\t", index = False)
 
 # tokenize for word frequency (we dont want this to be our only table; removes important stylistic information, i.e. parentheses, ..., etc.)
 # add a line_id as index name so we can have a layered index of line_num and token_num later on
-K = cleaning.index.name("line_id")
-K = cleaning.chunk_str.str.split(expand=True).stack().to_frame('token_str')
-K.index.names = ['Song_num','token_num']
+K = cleaning
+K = K.reset_index()
+K.index.name = "line_id"
+K = K.reset_index()
+K = K.set_index(["line_id","song"])
+K = K.chunk_str.str.split(expand=True).stack().to_frame('token_str')
+K.index.names = ['Line_id','Song_id', 'Token_num']
 # looks like tokenizing might have actually kept in some of the key lyrical annotations! This can serve useful for other analysis
 K.iloc[800:820]
 
